@@ -3,13 +3,26 @@
 	    <%=raw @page.title %>
 	</h1>
 </div>
+
 <section>
-	<div class="row">
-		<div class="span6">
-			<%=raw @page.content_for(:body) %>
-		</div>
-		<div class="span6">
-			<%=raw @page.content_for(:side_body) %>			
-		</div>	
+	<div class='row'>
+		
+		<% if @page.content_for(:side_body).empty? %>
+	
+			<div class="span12">
+				<%=raw @page.content_for(:body) %>
+			</div>
+	
+		<% else %>
+		
+			<div class="span6">
+				<%=raw @page.content_for(:body) %>
+			</div>
+			<div class="span6">
+				<%=raw @page.content_for(:side_body) %>			
+			</div>	
+		
+		<% end %>
+
 	</div>
-</section>
+</section>  
